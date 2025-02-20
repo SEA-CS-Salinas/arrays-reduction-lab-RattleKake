@@ -10,8 +10,24 @@ public class ArrayReduction
 {
 	public static int min_cost( int[] r )
 	{
+		// Initialize variables
+		int count = 0;
+		PriorityQueue<Integer> minCostQueue = new PriorityQueue<>();
+
+		// Fill minCostQueue
+		for (int num : r) {minCostQueue.offer(num);}
+
+		// Get the count and add to sum
+		while (minCostQueue.size() > 1) {
+			int sum = minCostQueue.poll() + minCostQueue.poll();
+			minCostQueue.offer(sum);
+
+			count += sum;
+		}
+
+
 		//MUST USE A PRIORITY QUEUE
-		return 0;	
+		return count;
 	}
 	
 	public static void main( String[] args )
